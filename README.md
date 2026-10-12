@@ -38,3 +38,4 @@ kr2-bootstrap-shop/
 │   └── custom.css
 ├── README.md
 └── .gitignore
+```
