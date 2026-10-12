@@ -3,17 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Заявка — Bootstrap Shop</title>
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  >
+  <meta name="description" content="Оформление заявки и заказа футбольной экипировки в интернет-магазине FootballShop.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Оформление заявки — FootballShop">
+  <meta property="og:description" content="Удобная форма заказа футбольных товаров с оперативной доставкой.">
+  <meta property="og:image" content="images/ball.jpg">
+  <title>Оформление заявки — FootballShop</title>
+
+  <!-- Локальное подключение Bootstrap 5 CSS -->
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <!-- Пользовательский файл стилей после Bootstrap -->
   <link rel="stylesheet" href="css/custom.css">
 </head>
-<body class="bg-light">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<body class="bg-light" id="top">
+
+  <!-- Верхняя информационная полоса (Header Top Bar) -->
+  <header class="bg-primary text-white py-2">
     <div class="container">
-      <a class="navbar-brand" href="index.html">Bootstrap Shop</a>
+      <div class="row align-items-center g-2">
+        <div class="col-12 col-md-8">
+          <span class="fw-semibold">⚽ FootballShop</span> — официальный магазин профессиональной футбольной экипировки
+        </div>
+        <div class="col-12 col-md-4 text-md-end">
+          <span class="badge bg-light text-primary me-2">Сезон 2026</span>
+          <span class="badge bg-warning text-dark">Оформление заказа</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Главная Bootstrap-навигация (Navbar) -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold fs-4 d-flex align-items-center" href="index.html">
+        <span class="me-2 text-warning">⚽</span>FootballShop
+      </a>
+
       <button
         class="navbar-toggler"
         type="button"
@@ -25,8 +50,9 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="mainNavbar">
-        <ul class="navbar-nav ms-auto">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
           <li class="nav-item">
             <a class="nav-link" href="index.html">Главная</a>
           </li>
@@ -39,6 +65,9 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="order.html">Заявка</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contacts.html">Контакты</a>
+          </li>
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
@@ -47,74 +76,229 @@
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Дополнительно
+              Категории
             </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="catalog.html">Все товары</a></li>
-              <li><a class="dropdown-item" href="order.html">Оформить заявку</a></li>
-              <li><a class="dropdown-item" href="index.html#popular">Популярное</a></li>
+            <ul class="dropdown-menu dropdown-menu-end shadow">
+              <li><a class="dropdown-item" href="catalog.html#category-balls">Футбольные мячи</a></li>
+              <li><a class="dropdown-item" href="catalog.html#category-boots">Футбольные бутсы</a></li>
+              <li><a class="dropdown-item" href="catalog.html#category-gloves">Вратарская экипировка</a></li>
+              <li><a class="dropdown-item" href="catalog.html#category-accessories">Гетры и аксессуары</a></li>
             </ul>
+          </li>
+          <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+            <button
+              class="btn btn-warning btn-sm fw-bold px-3"
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#orderModal"
+              data-product="Консультация по заказу"
+            >
+              Быстрая заявка
+            </button>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <main class="container my-5">
-    <div class="row justify-content-center">
+  <main class="container my-4">
+    <!-- Хлебные крошки (Breadcrumb) -->
+    <nav aria-label="breadcrumb" class="mb-4">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Главная</a></li>
+        <li class="breadcrumb-item"><a href="catalog.html" class="text-decoration-none">Каталог</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Оформление заявки</li>
+      </ol>
+    </nav>
+
+    <!-- Основная сетка страницы заказа (row g-4) -->
+    <div class="row g-4 justify-content-center">
+      <!-- Основная форма заявки (col-12 col-lg-8) -->
       <div class="col-12 col-lg-8">
-        <div class="card shadow-sm">
-          <div class="card-header bg-primary text-white">
-            <h1 class="h4 mb-0">Форма заявки</h1>
+        <div class="card border-0 shadow-sm bg-white rounded-3 overflow-hidden">
+          <div class="card-header bg-primary text-white py-3">
+            <h1 class="h4 mb-0 fw-bold">Оформление заявки на заказ экипировки</h1>
           </div>
-          <div class="card-body">
-            <div class="alert alert-info" role="alert">
-              Заполните форму. Поля со звёздочкой являются обязательными.
+
+          <div class="card-body p-4">
+            <!-- Сообщение-подсказка (Alert) -->
+            <div class="alert alert-info d-flex align-items-center mb-4" role="alert">
+              <span class="fs-4 me-3">📋</span>
+              <div>
+                Заполните форму заказа. Поля, отмеченные звёздочкой (<strong>*</strong>), являются обязательными для заполнения. Наш менеджер перезвонит вам для подтверждения деталей.
+              </div>
             </div>
-            <form>
+
+            <!-- Сообщение об успешной отправке (скрыто до отправки) -->
+            <div id="order-success-alert" class="alert alert-success d-none p-3 mb-4 rounded-3" role="alert">
+              <h2 class="h5 alert-heading fw-bold mb-1">🎉 Заявка успешно принята!</h2>
+              <p class="mb-0">
+                Благодарим за заказ в FootballShop! Номер заявки сформирован. Менеджер свяжется с вами по указанному номеру телефона в течение 15 минут.
+              </p>
+            </div>
+
+            <!-- Форма заказа с классами Bootstrap -->
+            <form id="main-order-form" action="#" method="post">
               <div class="row g-3">
+                <!-- Поле: Имя -->
                 <div class="col-12 col-md-6">
-                  <label for="order-name" class="form-label">Имя *</label>
-                  <input id="order-name" name="name" type="text" class="form-control" required>
+                  <label for="order-name" class="form-label fw-semibold">Ваше имя *</label>
+                  <input
+                    id="order-name"
+                    name="name"
+                    type="text"
+                    class="form-control"
+                    placeholder="Алексей Смирнов"
+                    minlength="2"
+                    autocomplete="given-name"
+                    required
+                  >
+                  <div class="invalid-feedback">Пожалуйста, укажите имя (не менее 2 символов).</div>
                 </div>
+
+                <!-- Поле: E-mail -->
                 <div class="col-12 col-md-6">
-                  <label for="order-email" class="form-label">E-mail *</label>
-                  <input id="order-email" name="email" type="email" class="form-control" required>
+                  <label for="order-email" class="form-label fw-semibold">Электронная почта *</label>
+                  <input
+                    id="order-email"
+                    name="email"
+                    type="email"
+                    class="form-control"
+                    placeholder="example@mail.ru"
+                    autocomplete="email"
+                    required
+                  >
+                  <div class="invalid-feedback">Укажите корректный адрес электронной почты.</div>
                 </div>
+
+                <!-- Поле: Телефон с префиксом (input-group) -->
                 <div class="col-12 col-md-6">
-                  <label for="order-phone" class="form-label">Телефон</label>
+                  <label for="order-phone" class="form-label fw-semibold">Контактный телефон *</label>
                   <div class="input-group">
-                    <span class="input-group-text">+7</span>
-                    <input id="order-phone" name="phone" type="tel" class="form-control" placeholder="900 000-00-00">
+                    <span class="input-group-text bg-light fw-bold text-muted">+7</span>
+                    <input
+                      id="order-phone"
+                      name="phone"
+                      type="tel"
+                      class="form-control"
+                      placeholder="900 000-00-00"
+                      pattern="\d{10}"
+                      required
+                    >
                   </div>
+                  <small class="form-text text-muted">10 цифр номера (например: 9991234567)</small>
+                  <div class="invalid-feedback">Введите корректный 10-значный номер телефона.</div>
                 </div>
+
+                <!-- Поле: Дата удобного звонка или доставки -->
                 <div class="col-12 col-md-6">
-                  <label for="order-product" class="form-label">Товар</label>
-                  <select id="order-product" name="product" class="form-select">
-                    <option selected>Выберите товар</option>
-                    <option value="product-1">Товар 1</option>
-                    <option value="product-2">Товар 2</option>
-                    <option value="product-3">Товар 3</option>
+                  <label for="order-date" class="form-label fw-semibold">Желаемая дата связи / доставки</label>
+                  <input
+                    id="order-date"
+                    name="date"
+                    type="date"
+                    class="form-control"
+                  >
+                </div>
+
+                <!-- Поле: Выпадающий список товаров (form-select) -->
+                <div class="col-12 col-md-6">
+                  <label for="order-product" class="form-label fw-semibold">Выбранный товар *</label>
+                  <select id="order-product" name="product" class="form-select" required>
+                    <option value="" disabled selected>-- Выберите товар из каталога --</option>
+                    <option value="ball">Мяч Лига Чемпионов — 12 000 руб.</option>
+                    <option value="boots">Бутсы Predator Pro — 18 500 руб.</option>
+                    <option value="gloves">Вратарские перчатки Grip — 6 000 руб.</option>
+                    <option value="phantom">Бутсы phantom elite GX2 — 20 000 руб.</option>
+                    <option value="puma">Бутсы Puma Future — 20 000 руб.</option>
+                    <option value="socks">Белые носки Nike — 2 000 руб.</option>
+                    <option value="consultation">Индивидуальная консультация по подбору</option>
+                  </select>
+                  <div class="invalid-feedback">Пожалуйста, выберите товар или тему обращения.</div>
+                </div>
+
+                <!-- Поле: Способ оплаты (form-select) -->
+                <div class="col-12 col-md-6">
+                  <label for="order-payment" class="form-label fw-semibold">Способ оплаты</label>
+                  <select id="order-payment" name="payment" class="form-select">
+                    <option value="card-online" selected>Банковской картой онлайн (МИР, Visa, Mastercard)</option>
+                    <option value="cash-delivery">Оплата курьеру при получении (наличные / терминал)</option>
+                    <option value="bank-transfer">Безналичный расчет для юрлиц (с НДС)</option>
                   </select>
                 </div>
+
+                <!-- Способ доставки (form-check radio) -->
                 <div class="col-12">
-                  <label for="order-comment" class="form-label">Комментарий</label>
-                  <textarea id="order-comment" name="comment" class="form-control" rows="4"></textarea>
-                </div>
-                <div class="col-12">
-                  <div class="form-check">
-                    <input id="order-agree" class="form-check-input" type="checkbox" required>
-                    <label class="form-check-label" for="order-agree">
-                      Я согласен на обработку данных *
-                    </label>
+                  <label class="form-label fw-semibold d-block">Способ получения заказа:</label>
+                  <div class="row g-2">
+                    <div class="col-12 col-md-4">
+                      <div class="form-check p-3 border rounded bg-light">
+                        <input class="form-check-input" type="radio" name="delivery" id="deliv-courier" value="courier" checked>
+                        <label class="form-check-label fw-semibold" for="deliv-courier">
+                          Курьер до двери
+                          <span class="d-block text-muted small fw-normal">Москва, 1-2 дня</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                      <div class="form-check p-3 border rounded bg-light">
+                        <input class="form-check-input" type="radio" name="delivery" id="deliv-cdek" value="cdek">
+                        <label class="form-check-label fw-semibold" for="deliv-cdek">
+                          Пункт СДЭК / Boxberry
+                          <span class="d-block text-muted small fw-normal">Вся Россия, 2-4 дня</span>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                      <div class="form-check p-3 border rounded bg-light">
+                        <input class="form-check-input" type="radio" name="delivery" id="deliv-pickup" value="pickup">
+                        <label class="form-check-label fw-semibold" for="deliv-pickup">
+                          Самовывоз (бесплатно)
+                          <span class="d-block text-muted small fw-normal">Магазин в Москве</span>
+                        </label>
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <div class="col-12 d-flex gap-2">
-                  <button class="btn btn-primary" type="submit">
-                    Отправить заявку
+
+                <!-- Поле: Комментарий к заказу -->
+                <div class="col-12">
+                  <label for="order-comment" class="form-label fw-semibold">Комментарий или уточнение размера</label>
+                  <textarea
+                    id="order-comment"
+                    name="comment"
+                    class="form-control"
+                    rows="3"
+                    placeholder="Укажите размер обуви, перчаток, адрес доставки или удобное время звонка..."
+                  ></textarea>
+                </div>
+
+                <!-- Чекбокс согласия (form-check) -->
+                <div class="col-12">
+                  <div class="form-check">
+                    <input
+                      id="order-agreement"
+                      name="agreement"
+                      class="form-check-input"
+                      type="checkbox"
+                      required
+                    >
+                    <label class="form-check-label" for="order-agreement">
+                      Я подтверждаю согласие на обработку персональных данных в соответствии с политикой конфиденциальности *
+                    </label>
+                    <div class="invalid-feedback">
+                      Для отправки заявки необходимо дать согласие на обработку данных.
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Кнопки действий формы -->
+                <div class="col-12 pt-3 border-top d-flex flex-wrap gap-2">
+                  <button class="btn btn-primary btn-lg px-4 fw-semibold" type="submit">
+                    Отправить заявку на заказ
                   </button>
-                  <button class="btn btn-outline-secondary" type="reset">
-                    Очистить
+                  <button class="btn btn-outline-secondary btn-lg px-4" type="reset">
+                    Очистить форму
                   </button>
                 </div>
               </div>
@@ -122,11 +306,237 @@
           </div>
         </div>
       </div>
+
+      <!-- Боковая колонка с информацией и гарантиями (col-12 col-lg-4) -->
+      <aside class="col-12 col-lg-4">
+        <!-- Карточка преимуществ заказа -->
+        <div class="card border-0 shadow-sm p-4 bg-white mb-4 rounded-3">
+          <h2 class="h5 fw-bold mb-3 text-dark">Преимущества заказа у нас</h2>
+          <ul class="list-unstyled mb-0">
+            <li class="d-flex align-items-start mb-3">
+              <span class="fs-5 me-2 text-primary">🛡️</span>
+              <div>
+                <strong>Официальная гарантия:</strong>
+                <p class="text-muted small mb-0">100% сертифицированные мячи и бутсы от фабрик производителей.</p>
+              </div>
+            </li>
+            <li class="d-flex align-items-start mb-3">
+              <span class="fs-5 me-2 text-success">👟</span>
+              <div>
+                <strong>Примерка перед покупкой:</strong>
+                <p class="text-muted small mb-0">Курьер может привезти два смежных размера бутс на выбор.</p>
+              </div>
+            </li>
+            <li class="d-flex align-items-start mb-3">
+              <span class="fs-5 me-2 text-warning">🔄</span>
+              <div>
+                <strong>Легкий возврат и обмен:</strong>
+                <p class="text-muted small mb-0">14 дней на обмен неподошедшего размера без бюрократии.</p>
+              </div>
+            </li>
+            <li class="d-flex align-items-start">
+              <span class="fs-5 me-2 text-info">⚡</span>
+              <div>
+                <strong>Мгновенное подтверждение:</strong>
+                <p class="text-muted small mb-0">Свяжемся с вами в течение 15 минут в рабочее время магазина.</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Контактная карточка магазина -->
+        <div class="card border-0 shadow-sm p-4 bg-primary text-white rounded-3">
+          <h2 class="h5 fw-bold mb-2">Нужна срочная консультация?</h2>
+          <p class="small opacity-90 mb-3">
+            Позвоните нашим экспертам прямо сейчас — поможем подобрать правильную модель и размер под покрытие вашего стадиона.
+          </p>
+          <div class="d-grid gap-2">
+            <a class="btn btn-warning fw-bold" href="tel:88005553535">
+              📞 8-800-555-35-35
+            </a>
+            <a class="btn btn-outline-light btn-sm" href="contacts.html">
+              Страница контактов
+            </a>
+          </div>
+        </div>
+      </aside>
     </div>
   </main>
 
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
-  </script>
+  <!-- Подвал страницы (Footer) -->
+  <footer class="bg-dark text-white py-5 mt-auto border-top">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 col-md-4">
+          <h4 class="h5 fw-bold mb-3 text-warning">⚽ FootballShop</h4>
+          <p class="text-white-50 mb-2">
+            Быстрое оформление заказов и профессиональная консультация по подбору футбольной экипировки.
+          </p>
+          <p class="text-white-50 small mb-0">
+            Контрольная работа №2 • Дисциплина «Фронтенд и бэкенд разработка»
+          </p>
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-4">
+          <h4 class="h6 fw-bold mb-3 text-uppercase text-light">Навигация по сайту</h4>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-2"><a class="text-white-50 text-decoration-none" href="index.html">Главная страница</a></li>
+            <li class="mb-2"><a class="text-white-50 text-decoration-none" href="catalog.html">Каталог товаров</a></li>
+            <li class="mb-2"><a class="text-white-50 text-decoration-none" href="product.html">Карточка товара</a></li>
+            <li class="mb-2"><a class="text-white-50 text-decoration-none" href="order.html">Оформление заявки</a></li>
+            <li class="mb-2"><a class="text-white-50 text-decoration-none" href="contacts.html">Контакты и администраторы</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-4">
+          <h4 class="h6 fw-bold mb-3 text-uppercase text-light">Контакты</h4>
+          <p class="text-white-50 mb-1">📞 Телефон: <a class="text-white text-decoration-none" href="tel:88005553535">8-800-555-35-35</a></p>
+          <p class="text-white-50 mb-1">✉️ E-mail: <a class="text-white text-decoration-none" href="mailto:footballstore@gmail.com">footballstore@gmail.com</a></p>
+          <p class="text-white-50 mb-3">📍 Адрес: г. Москва, ул. Пушкина, д. Колотушкина</p>
+          <div class="p-2 rounded bg-black bg-opacity-25 border border-secondary text-white-50 small">
+            Автор: Волков Сергей Иванович, гр. ЭФБО-03-25
+          </div>
+        </div>
+      </div>
+
+      <hr class="my-4 border-secondary">
+
+      <div class="row align-items-center">
+        <div class="col-12 col-md-6 text-center text-md-start text-white-50 small">
+          &copy; 2026 FootballShop. Все права защищены. <a href="#top" class="text-white-50 text-decoration-none ms-3">Наверх ↑</a>
+        </div>
+        <div class="col-12 col-md-6 text-center text-md-end text-white-50 small mt-2 mt-md-0">
+          Стилизация: <span class="badge bg-secondary">Bootstrap 5 (Local)</span> + <span class="badge bg-secondary">custom.css</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Модальное окно быстрой заявки (Modal) -->
+  <div
+    class="modal fade"
+    id="orderModal"
+    tabindex="-1"
+    aria-labelledby="orderModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg">
+        <div class="modal-header bg-primary text-white">
+          <h2 class="modal-title h5 mb-0" id="orderModalLabel">
+            Быстрая заявка
+          </h2>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="modal"
+            aria-label="Закрыть"
+          ></button>
+        </div>
+
+        <form id="modal-order-form" action="#" method="post">
+          <div class="modal-body p-4">
+            <input type="hidden" id="modal-hidden-product" name="hidden-product" value="">
+
+            <div class="mb-3">
+              <label for="modal-product" class="form-label fw-semibold">Выбранный товар</label>
+              <select id="modal-product" name="product" class="form-select">
+                <option value="Консультация по заказу">Консультация по заказу</option>
+                <option value="Мяч Лига Чемпионов">Мяч Лига Чемпионов — 12 000 руб.</option>
+                <option value="Бутсы Predator Pro">Бутсы Predator Pro — 18 500 руб.</option>
+                <option value="Вратарские перчатки Grip">Вратарские перчатки Grip — 6 000 руб.</option>
+                <option value="Бутсы phantom elite GX2">Бутсы phantom elite GX2 — 20 000 руб.</option>
+                <option value="Бутсы Puma Future">Бутсы Puma Future — 20 000 руб.</option>
+                <option value="Белые носки Nike">Белые носки Nike — 2 000 руб.</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="modal-name" class="form-label fw-semibold">Ваше имя *</label>
+              <input
+                id="modal-name"
+                name="name"
+                type="text"
+                class="form-control"
+                placeholder="Иван Иванов"
+                minlength="2"
+                autocomplete="given-name"
+                required
+              >
+              <div class="invalid-feedback">Пожалуйста, укажите имя.</div>
+            </div>
+
+            <div class="mb-3">
+              <label for="modal-email" class="form-label fw-semibold">Электронная почта *</label>
+              <input
+                id="modal-email"
+                name="email"
+                type="email"
+                class="form-control"
+                placeholder="example@mail.ru"
+                autocomplete="email"
+                required
+              >
+              <div class="invalid-feedback">Укажите корректный e-mail.</div>
+            </div>
+
+            <div class="mb-3">
+              <label for="modal-phone" class="form-label fw-semibold">Телефон *</label>
+              <div class="input-group">
+                <span class="input-group-text">+7</span>
+                <input
+                  id="modal-phone"
+                  name="phone"
+                  type="tel"
+                  class="form-control"
+                  placeholder="(900) 000-00-00"
+                  pattern="\d{10}"
+                  required
+                >
+              </div>
+              <small class="form-text text-muted">10 цифр номера</small>
+            </div>
+
+            <div class="mb-3">
+              <label for="modal-comment" class="form-label fw-semibold">Комментарий</label>
+              <textarea
+                id="modal-comment"
+                name="comment"
+                rows="2"
+                class="form-control"
+                placeholder="Укажите размер или пожелания..."
+              ></textarea>
+            </div>
+
+            <div class="form-check mb-2">
+              <input
+                id="modal-agree"
+                name="agreement"
+                class="form-check-input"
+                type="checkbox"
+                required
+              >
+              <label class="form-check-label small" for="modal-agree">
+                Я согласен на обработку персональных данных *
+              </label>
+              <div class="invalid-feedback">Необходимо согласие на обработку данных.</div>
+            </div>
+          </div>
+
+          <div class="modal-footer bg-light">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Закрыть
+            </button>
+            <button type="submit" class="btn btn-primary fw-semibold px-4">
+              Отправить заявку
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Локальный Bootstrap 5 JS Bundle -->
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

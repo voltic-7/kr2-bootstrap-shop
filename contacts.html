@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Контакты футбольного магазина FootballShop. Адрес в Москве, телефон, режим работы и команда администраторов.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Контакты — FootballShop">
+  <meta property="og:description" content="Контактная информация и обратная связь с футбольным магазином FootballShop.">
+  <meta property="og:image" content="images/admin.jpg">
+  <title>Контакты — FootballShop</title>
+
+  <!-- Локальное подключение Bootstrap 5 CSS -->
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <!-- Пользовательский файл стилей после Bootstrap -->
+  <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="bg-light" id="top">
+
+  <!-- Верхняя информационная полоса (Header Top Bar) -->
+  <header class="bg-primary text-white py-2">
+    <div class="container">
+      <div class="row align-items-center g-2">
+        <div class="col-12 col-md-8">
+          <span class="fw-semibold">⚽ FootballShop</span> — официальный магазин профессиональной футбольной экипировки
+        </div>
+        <div class="col-12 col-md-4 text-md-end">
+          <span class="badge bg-light text-primary me-2">Сезон 2026</span>
+          <span class="badge bg-warning text-dark">Контакты</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Главная Bootstrap-навигация (Navbar) -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold fs-4 d-flex align-items-center" href="index.html">
+        <span class="me-2 text-warning">⚽</span>FootballShop
+      </a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNavbar"
+        aria-controls="mainNavbar"
+        aria-expanded="false"
+        aria-label="Переключить навигацию"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Главная</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="catalog.html">Каталог</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="product.html">Товар</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="order.html">Заявка</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="contacts.html">Контакты</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Категории
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end shadow">
+              <li><a class="dropdown-item" href="catalog.html#category-balls">Футбольные мячи</a></li>
+              <li><a class="dropdown-item" href="catalog.html#category-boots">Футбольные бутсы</a></li>
+              <li><a class="dropdown-item" href="catalog.html#category-gloves">Вратарская экипировка</a></li>
+              <li><a class="dropdown-item" href="catalog.html#category-accessories">Гетры и аксессуары</a></li>
+            </ul>
+          </li>
+          <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+            <button
+              class="btn btn-warning btn-sm fw-bold px-3"
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#orderModal"
+              data-product="Обратная связь"
+            >
+              Быстрая заявка
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container my-4">
+    <!-- Хлебные крошки (Breadcrumb) -->
+    <nav aria-label="breadcrumb" class="mb-4">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Главная</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Контакты</li>
+      </ol>
+    </nav>
+
+    <div class="mb-4">
+      <h1 class="display-6 fw-bold mb-1">Контакты и обратная связь</h1>
+      <p class="text-muted">Мы всегда на связи и рады помочь с любым футбольным вопросом</p>
+    </div>
+
+    <!-- Информационные карточки контактов (row g-4) -->
+    <div class="row g-4 mb-5">
+      <!-- Контактные данные -->
+      <div class="col-12 col-lg-5">
+        <div class="card border-0 shadow-sm p-4 bg-white h-100 rounded-3">
+          <h2 class="h5 fw-bold mb-3 text-dark">Контактная информация</h2>
+          
+          <div class="d-flex align-items-start mb-3">
+            <span class="fs-4 me-3 text-primary">📍</span>
+            <div>
+              <strong>Адрес флагманского магазина:</strong>
+              <p class="text-muted mb-0">г. Москва, ул. Пушкина, д. Колотушкина (м. Динамо / ЦСКА)</p>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-start mb-3">
+            <span class="fs-4 me-3 text-success">📞</span>
+            <div>
+              <strong>Единая горячая линия:</strong>
+              <p class="mb-0">
+                <a class="text-dark fw-bold text-decoration-none" href="tel:88005553535">8-800-555-35-35</a>
+                <span class="text-muted small d-block">(Звонок по России бесплатный)</span>
+              </p>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-start mb-3">
+            <span class="fs-4 me-3 text-danger">✉️</span>
+            <div>
+              <strong>Электронная почта:</strong>
+              <p class="mb-0">
+                <a class="text-primary text-decoration-none" href="mailto:footballstore@gmail.com">footballstore@gmail.com</a>
+              </p>
+            </div>
+          </div>
+
+          <div class="d-flex align-items-start mb-4">
+            <span class="fs-4 me-3 text-warning">🕒</span>
+            <div>
+              <strong>Режим работы:</strong>
+              <p class="text-muted mb-0">
+                Понедельник — Воскресенье: с 10:00 до 21:00<br>
+                Интернет-заявки принимаются круглосуточно 24/7
+              </p>
+            </div>
+          </div>
+
+          <div class="alert alert-light border mt-auto mb-0" role="alert">
+            <h3 class="h6 fw-bold mb-1">Реквизиты проекта</h3>
+            <p class="small text-muted mb-0">
+              ООО «Футбольный Магазин FootballShop»<br>
+              ОГРН: 1267700123456 • ИНН: 7701234567<br>
+              Студент: Волков Сергей Иванович, гр. ЭФБО-03-25
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Форма обратной связи -->
+      <div class="col-12 col-lg-7">
+        <div class="card border-0 shadow-sm p-4 bg-white h-100 rounded-3">
+          <h2 class="h5 fw-bold mb-2 text-dark">Напишите нам сообщение</h2>
+          <p class="text-muted small mb-4">Заполните поля ниже, и администратор ответит вам на e-mail в течение часа.</p>
+
+          <form id="contact-form" action="#" method="post">
+            <div class="row g-3">
+              <div class="col-12 col-md-6">
+                <label for="contact-name" class="form-label fw-semibold">Ваше имя *</label>
+                <input id="contact-name" name="name" type="text" class="form-control" placeholder="Иван" required>
+                <div class="invalid-feedback">Пожалуйста, введите имя.</div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="contact-email" class="form-label fw-semibold">E-mail для ответа *</label>
+                <input id="contact-email" name="email" type="email" class="form-control" placeholder="example@mail.ru" required>
+                <div class="invalid-feedback">Укажите корректный e-mail.</div>
+              </div>
+
+              <div class="col-12">
+                <label for="contact-topic" class="form-label fw-semibold">Тема обращения</label>
+                <select id="contact-topic" name="topic" class="form-select">
+                  <option value="question" selected>Вопрос по наличию и размеру</option>
+                  <option value="delivery">Вопрос по доставке заказа</option>
+                  <option value="wholesale">Оптовый заказ для команды</option>
+                  <option value="partnership">Предложение о сотрудничестве</option>
+                </select>
+              </div>
+
+              <div class="col-12">
+                <label for="contact-message" class="form-label fw-semibold">Текст сообщения *</label>
+                <textarea id="contact-message" name="message" rows="4" class="form-control" placeholder="Напишите ваш вопрос или пожелание..." required></textarea>
+                <div class="invalid-feedback">Пожалуйста, введите текст сообщения.</div>
+              </div>
+
+              <div class="col-12">
+                <div class="form-check">
+                  <input id="contact-agree" name="agreement" type="checkbox" class="form-check-input" required>
+                  <label for="contact-agree" class="form-check-label small">
+                    Я согласен на обработку персональных данных *
+                  </label>
+                  <div class="invalid-feedback">Необходимо согласие на обработку данных.</div>
+                </div>
+              </div>
+
+              <div class="col-12 pt-2">
+                <button class="btn btn-primary px-4 fw-semibold" type="submit">
+                  Отправить сообщение
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Секция: Наша команда администраторов -->
+    <section class="mb-5" id="team">
+      <div class="text-center mb-4">
+        <h2 class="display-6 fw-bold">Наша команда экспертов</h2>
+        <p class="text-muted">Администраторы FootballShop лично проверяют каждый заказ и помогают с выбором экипировки</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Администратор 1 -->
+        <div class="col-12 col-md-4">
+          <div class="card h-100 border-0 shadow-sm product-card overflow-hidden bg-white text-center">
+            <img src="images/admin.jpg" class="admin-card-img card-img-top" alt="Старший администратор на связи">
+            <div class="card-body p-4">
+              <span class="badge bg-primary mb-2">Старший администратор</span>
+              <h3 class="h5 fw-bold mb-1">Максим Орлов</h3>
+              <p class="text-muted small mb-3">«Всегда на связи с клиентами. Отвечу на любые технические вопросы по мячам и бутсам.»</p>
+              <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#orderModal" data-product="Консультация с Максимом">Написать Максиму</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Администратор 2 -->
+        <div class="col-12 col-md-4">
+          <div class="card h-100 border-0 shadow-sm product-card overflow-hidden bg-white text-center">
+            <img src="images/admin1.jpg" class="admin-card-img card-img-top" alt="Контроль качества на складе">
+            <div class="card-body p-4">
+              <span class="badge bg-success mb-2">Контроль качества</span>
+              <h3 class="h5 fw-bold mb-1">Сергей Иванов</h3>
+              <p class="text-muted small mb-3">«Лично проверяю целостность термосклейки мячей и заводские бирки перед передачей курьеру.»</p>
+              <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#orderModal" data-product="Вопрос по качеству">Написать Сергею</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Администратор 3 -->
+        <div class="col-12 col-md-4">
+          <div class="card h-100 border-0 shadow-sm product-card overflow-hidden bg-white text-center">
+            <img src="images/admin2.jpg" class="admin-card-img card-img-top" alt="Помощь с подбором размера">
+            <div class="card-body p-4">
+              <span class="badge bg-warning text-dark mb-2">Консультант по экипировке</span>
+              <h3 class="h5 fw-bold mb-1">Дмитрий Волков</h3>
+              <p class="text-muted small mb-3">«Помогу подобрать точный размер бутс под ширину вашей стопы и тип игрового покрытия.»</p>
+              <button class="btn btn-outline-primary btn-sm" data-bs-toggle="modal" data-bs-target="#orderModal" data-product="Подбор размера с Дмитрием">Написать Дмитрию</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Подвал страницы (Footer) -->
+  <footer class="bg-dark text-white py-5 mt-auto border-top">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 col-md-4">
+          <h4 class="h5 fw-bold mb-3 text-warning">⚽ FootballShop</h4>
+          <p class="text-white-50 mb-2">
+            Страница контактов, реквизитов и команды экспертов магазина FootballShop.
+          </p>
+          <p class="text-white-50 small mb-0">
+            Контрольная работа №2 • Дисциплина «Фронтенд и бэкенд разработка»
+          </p>
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-4">
+          <h4 class="h6 fw-bold mb-3 text-uppercase text-light">Навигация по сайту</h4>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-2"><a class="text-white-50 text-decoration-none" href="index.html">Главная страница</a></li>
+            <li class="mb-2"><a class="text-white-50 text-decoration-none" href="catalog.html">Каталог товаров</a></li>
+            <li class="mb-2"><a class="text-white-50 text-decoration-none" href="product.html">Карточка товара</a></li>
+            <li class="mb-2"><a class="text-white-50 text-decoration-none" href="order.html">Оформление заявки</a></li>
+            <li class="mb-2"><a class="text-white-50 text-decoration-none" href="contacts.html">Контакты и администраторы</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-4">
+          <h4 class="h6 fw-bold mb-3 text-uppercase text-light">Контакты</h4>
+          <p class="text-white-50 mb-1">📞 Телефон: <a class="text-white text-decoration-none" href="tel:88005553535">8-800-555-35-35</a></p>
+          <p class="text-white-50 mb-1">✉️ E-mail: <a class="text-white text-decoration-none" href="mailto:footballstore@gmail.com">footballstore@gmail.com</a></p>
+          <p class="text-white-50 mb-3">📍 Адрес: г. Москва, ул. Пушкина, д. Колотушкина</p>
+          <div class="p-2 rounded bg-black bg-opacity-25 border border-secondary text-white-50 small">
+            Автор: Волков Сергей Иванович, гр. ЭФБО-03-25
+          </div>
+        </div>
+      </div>
+
+      <hr class="my-4 border-secondary">
+
+      <div class="row align-items-center">
+        <div class="col-12 col-md-6 text-center text-md-start text-white-50 small">
+          &copy; 2026 FootballShop. Все права защищены. <a href="#top" class="text-white-50 text-decoration-none ms-3">Наверх ↑</a>
+        </div>
+        <div class="col-12 col-md-6 text-center text-md-end text-white-50 small mt-2 mt-md-0">
+          Стилизация: <span class="badge bg-secondary">Bootstrap 5 (Local)</span> + <span class="badge bg-secondary">custom.css</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Модальное окно быстрой заявки (Modal) -->
+  <div
+    class="modal fade"
+    id="orderModal"
+    tabindex="-1"
+    aria-labelledby="orderModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg">
+        <div class="modal-header bg-primary text-white">
+          <h2 class="modal-title h5 mb-0" id="orderModalLabel">
+            Быстрая заявка / Вопрос
+          </h2>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="modal"
+            aria-label="Закрыть"
+          ></button>
+        </div>
+
+        <form id="modal-order-form" action="#" method="post">
+          <div class="modal-body p-4">
+            <input type="hidden" id="modal-hidden-product" name="hidden-product" value="">
+
+            <div class="mb-3">
+              <label for="modal-product" class="form-label fw-semibold">Тема обращения</label>
+              <select id="modal-product" name="product" class="form-select">
+                <option value="Обратная связь">Обратная связь с администрацией</option>
+                <option value="Консультация с Максимом">Консультация со старшим администратором Максимом</option>
+                <option value="Вопрос по качеству">Вопрос по качеству и сертификатам</option>
+                <option value="Подбор размера с Дмитрием">Подбор размера обуви и экипировки</option>
+                <option value="Мяч Лига Чемпионов">Мяч Лига Чемпионов — 12 000 руб.</option>
+                <option value="Бутсы Predator Pro">Бутсы Predator Pro — 18 500 руб.</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="modal-name" class="form-label fw-semibold">Ваше имя *</label>
+              <input
+                id="modal-name"
+                name="name"
+                type="text"
+                class="form-control"
+                placeholder="Иван Иванов"
+                minlength="2"
+                autocomplete="given-name"
+                required
+              >
+              <div class="invalid-feedback">Пожалуйста, укажите имя.</div>
+            </div>
+
+            <div class="mb-3">
+              <label for="modal-email" class="form-label fw-semibold">Электронная почта *</label>
+              <input
+                id="modal-email"
+                name="email"
+                type="email"
+                class="form-control"
+                placeholder="example@mail.ru"
+                autocomplete="email"
+                required
+              >
+              <div class="invalid-feedback">Укажите корректный e-mail.</div>
+            </div>
+
+            <div class="mb-3">
+              <label for="modal-phone" class="form-label fw-semibold">Телефон *</label>
+              <div class="input-group">
+                <span class="input-group-text">+7</span>
+                <input
+                  id="modal-phone"
+                  name="phone"
+                  type="tel"
+                  class="form-control"
+                  placeholder="(900) 000-00-00"
+                  pattern="\d{10}"
+                  required
+                >
+              </div>
+              <small class="form-text text-muted">10 цифр номера</small>
+            </div>
+
+            <div class="mb-3">
+              <label for="modal-comment" class="form-label fw-semibold">Сообщение</label>
+              <textarea
+                id="modal-comment"
+                name="comment"
+                rows="2"
+                class="form-control"
+                placeholder="Ваш вопрос или пожелание..."
+              ></textarea>
+            </div>
+
+            <div class="form-check mb-2">
+              <input
+                id="modal-agree"
+                name="agreement"
+                class="form-check-input"
+                type="checkbox"
+                required
+              >
+              <label class="form-check-label small" for="modal-agree">
+                Я согласен на обработку персональных данных *
+              </label>
+              <div class="invalid-feedback">Необходимо согласие на обработку данных.</div>
+            </div>
+          </div>
+
+          <div class="modal-footer bg-light">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Закрыть
+            </button>
+            <button type="submit" class="btn btn-primary fw-semibold px-4">
+              Отправить
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Локальный Bootstrap 5 JS Bundle -->
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -3,17 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Каталог — Bootstrap Shop</title>
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  >
+  <meta name="description" content="Каталог футбольной экипировки интернет-магазина FootballShop. Мячи, бутсы, перчатки и аксессуары.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Каталог товаров — FootballShop">
+  <meta property="og:description" content="Широкий ассортимент футбольных товаров от мировых брендов.">
+  <meta property="og:image" content="images/ball.jpg">
+  <title>Каталог товаров — FootballShop</title>
+
+  <!-- Локальное подключение Bootstrap 5 CSS -->
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <!-- Пользовательский файл стилей после Bootstrap -->
   <link rel="stylesheet" href="css/custom.css">
 </head>
-<body class="bg-light">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<body class="bg-light" id="top">
+
+  <!-- Верхняя информационная полоса (Header Top Bar) -->
+  <header class="bg-primary text-white py-2">
     <div class="container">
-      <a class="navbar-brand" href="index.html">Bootstrap Shop</a>
+      <div class="row align-items-center g-2">
+        <div class="col-12 col-md-8">
+          <span class="fw-semibold">⚽ FootballShop</span> — каталог футбольной экипировки и инвентаря
+        </div>
+        <div class="col-12 col-md-4 text-md-end">
+          <span class="badge bg-light text-primary me-2">Сезон 2026</span>
+          <span class="badge bg-warning text-dark">Каталог товаров</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Главная Bootstrap-навигация (Navbar) -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand fw-bold fs-4 d-flex align-items-center" href="index.html">
+        <span class="me-2 text-warning">⚽</span>FootballShop
+      </a>
+
       <button
         class="navbar-toggler"
         type="button"
@@ -25,8 +50,9 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="mainNavbar">
-        <ul class="navbar-nav ms-auto">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
           <li class="nav-item">
             <a class="nav-link" href="index.html">Главная</a>
           </li>
@@ -39,6 +65,9 @@
           <li class="nav-item">
             <a class="nav-link" href="order.html">Заявка</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contacts.html">Контакты</a>
+          </li>
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
@@ -47,108 +76,469 @@
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Дополнительно
+              Категории
             </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="catalog.html">Все товары</a></li>
-              <li><a class="dropdown-item" href="order.html">Оформить заявку</a></li>
-              <li><a class="dropdown-item" href="index.html#popular">Популярное</a></li>
+            <ul class="dropdown-menu dropdown-menu-end shadow">
+              <li><a class="dropdown-item" href="#category-balls">Футбольные мячи</a></li>
+              <li><a class="dropdown-item" href="#category-boots">Футбольные бутсы</a></li>
+              <li><a class="dropdown-item" href="#category-gloves">Вратарская экипировка</a></li>
+              <li><a class="dropdown-item" href="#category-accessories">Гетры и аксессуары</a></li>
             </ul>
+          </li>
+          <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+            <button
+              class="btn btn-warning btn-sm fw-bold px-3"
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#orderModal"
+              data-product="Консультация по каталогу"
+            >
+              Быстрая заявка
+            </button>
           </li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <main class="container my-5">
-    <div class="alert alert-info" role="alert">
-      Выберите товар из каталога. Карточки товаров оформлены с помощью компонента Bootstrap `card`.
+  <main class="container my-4">
+    <!-- Хлебные крошки (Breadcrumb) -->
+    <nav aria-label="breadcrumb" class="mb-3">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html" class="text-decoration-none">Главная</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Каталог товаров</li>
+      </ol>
+    </nav>
+
+    <!-- Информационное сообщение (Alert) -->
+    <div class="alert alert-info alert-dismissible fade show d-flex align-items-center shadow-sm" role="alert">
+      <span class="fs-4 me-3">ℹ️</span>
+      <div>
+        <strong>Добро пожаловать в каталог FootballShop!</strong> Выберите интересующую экипировку из списка. Воспользуйтесь удобными фильтрами слева для быстрого поиска по категории, бренду и диапазону цен. Доставка по Москве в течение 24 часов.
+      </div>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Закрыть"></button>
     </div>
-    <div class="d-flex justify-content-between align-items-center mb-4">
-      <h1 class="h2 mb-0">Каталог товаров</h1>
-      <a class="btn btn-outline-primary" href="order.html">
-        Оставить заявку
-      </a>
+
+    <!-- Заголовок страницы и быстрые действия -->
+    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+      <div>
+        <h1 class="h2 fw-bold mb-1">Каталог товаров</h1>
+        <p class="text-muted mb-0">Футбольные мячи, профессиональные бутсы, вратарские перчатки и экипировка</p>
+      </div>
+      <div class="d-flex gap-2">
+        <a class="btn btn-outline-primary" href="order.html">
+          Оформить заказ
+        </a>
+        <button
+          class="btn btn-primary"
+          type="button"
+          data-bs-toggle="modal"
+          data-bs-target="#orderModal"
+          data-product="Подбор размера"
+        >
+          Помощь с подбором
+        </button>
+      </div>
     </div>
+
+    <!-- Основная раскладка: Фильтры (aside) + Сетка товаров (section) -->
     <div class="row g-4">
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card h-100 shadow-sm">
-          <div class="card-body d-flex flex-column">
-            <div class="d-flex justify-content-between align-items-start mb-3">
-              <h2 class="card-title h5">Товар 1</h2>
-              <span class="badge bg-success">Новинка</span>
+      <!-- Боковая панель фильтрации (col-12 col-lg-3) -->
+      <aside class="col-12 col-lg-3">
+        <div class="card border-0 shadow-sm p-4 sticky-filters bg-white">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h2 class="h5 fw-bold mb-0">Фильтры</h2>
+            <span class="badge bg-primary rounded-pill">6 товаров</span>
+          </div>
+
+          <form action="#" method="get">
+            <!-- Фильтр по категории -->
+            <div class="mb-4">
+              <label class="form-label fw-semibold text-dark">Категория</label>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="cat-all" name="cat" value="all" checked>
+                <label class="form-check-label" for="cat-all">Все категории</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="cat-balls" name="cat" value="balls">
+                <label class="form-check-label" for="cat-balls">Футбольные мячи</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="cat-boots" name="cat" value="boots">
+                <label class="form-check-label" for="cat-boots">Бутсы и обувь</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="cat-gloves" name="cat" value="gloves">
+                <label class="form-check-label" for="cat-gloves">Вратарские перчатки</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="cat-socks" name="cat" value="socks">
+                <label class="form-check-label" for="cat-socks">Гетры и носки</label>
+              </div>
             </div>
-            <p class="card-text text-muted">
-              Краткое описание учебного товара для каталога.
-            </p>
-            <p class="fw-bold fs-5 mt-auto">1000 руб.</p>
-            <div class="d-flex gap-2">
-              <a class="btn btn-primary" href="product.html">Подробнее</a>
-              <button
-                class="btn btn-outline-primary"
-                type="button"
-                data-bs-toggle="modal"
-                data-bs-target="#orderModal"
-              >
-                Заказать
-              </button>
+
+            <!-- Фильтр по цене -->
+            <div class="mb-4">
+              <label class="form-label fw-semibold text-dark">Цена (руб.)</label>
+              <div class="row g-2">
+                <div class="col-6">
+                  <div class="input-group input-group-sm">
+                    <span class="input-group-text">От</span>
+                    <input type="number" class="form-control" name="price-min" placeholder="1000" min="0">
+                  </div>
+                </div>
+                <div class="col-6">
+                  <div class="input-group input-group-sm">
+                    <span class="input-group-text">До</span>
+                    <input type="number" class="form-control" name="price-max" placeholder="25000" min="0">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Фильтр по бренду -->
+            <div class="mb-4">
+              <label class="form-label fw-semibold text-dark">Бренд</label>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="brand-nike" name="brand" value="nike">
+                <label class="form-check-label" for="brand-nike">Nike</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="brand-adidas" name="brand" value="adidas">
+                <label class="form-check-label" for="brand-adidas">Adidas</label>
+              </div>
+              <div class="form-check mb-2">
+                <input class="form-check-input" type="checkbox" id="brand-puma" name="brand" value="puma">
+                <label class="form-check-label" for="brand-puma">Puma</label>
+              </div>
+            </div>
+
+            <!-- Статус наличия -->
+            <div class="mb-4">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="in-stock" name="stock" checked>
+                <label class="form-check-label" for="in-stock">Только в наличии</label>
+              </div>
+            </div>
+
+            <!-- Кнопки управления фильтрами -->
+            <div class="d-grid gap-2">
+              <button class="btn btn-primary" type="submit">Применить фильтры</button>
+              <button class="btn btn-outline-secondary btn-sm" type="reset">Сбросить</button>
+            </div>
+          </form>
+        </div>
+      </aside>
+
+      <!-- Список товаров (col-12 col-lg-9) -->
+      <section class="col-12 col-lg-9">
+        <!-- Панель сортировки и режима отображения -->
+        <div class="card border-0 shadow-sm p-3 mb-4 bg-white">
+          <div class="row align-items-center g-2">
+            <div class="col-12 col-sm-6">
+              <span class="text-muted small">Показано: <strong class="text-dark">6 товаров</strong></span>
+            </div>
+            <div class="col-12 col-sm-6 text-sm-end">
+              <div class="d-inline-flex align-items-center gap-2">
+                <label for="sortSelect" class="form-label mb-0 small text-muted text-nowrap">Сортировка:</label>
+                <select id="sortSelect" class="form-select form-select-sm" style="width: auto;">
+                  <option value="popular">По популярности</option>
+                  <option value="price-asc">Сначала дешевле</option>
+                  <option value="price-desc">Сначала дороже</option>
+                  <option value="new">Новинки сезона</option>
+                </select>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card h-100 shadow-sm">
-          <div class="card-body d-flex flex-column">
-            <div class="d-flex justify-content-between align-items-start mb-3">
-              <h2 class="card-title h5">Товар 2</h2>
-              <span class="badge bg-warning text-dark">Хит</span>
+
+        <!-- Сетка карточек товаров (row g-4) -->
+        <div class="row g-4">
+          <!-- Товар 1: Мяч Лига Чемпионов -->
+          <div class="col-12 col-md-6 col-lg-4" id="category-balls">
+            <div class="card h-100 shadow-sm product-card border-0 overflow-hidden bg-white">
+              <div class="position-relative overflow-hidden">
+                <span class="position-absolute top-0 start-0 m-3 badge bg-success shadow-sm">Новинка</span>
+                <img src="images/ball.jpg" class="card-img-top" alt="Мяч Лига Чемпионов">
+              </div>
+              <div class="card-body d-flex flex-column p-3">
+                <div class="text-muted small mb-1">Мячи • FIFA Quality Pro</div>
+                <h3 class="card-title h5 fw-bold mb-2">Мяч Лига Чемпионов</h3>
+                <p class="card-text text-muted small">
+                  Официальный игровой мяч для профессионалов. Идеален для травяных газонов.
+                </p>
+                <div class="mt-auto pt-3 border-top">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="fs-5 fw-bold text-dark">12 000 руб.</span>
+                    <span class="badge bg-light text-success border border-success-subtle">В наличии</span>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <a class="btn btn-primary btn-sm w-50" href="product.html">Подробнее</a>
+                    <button
+                      class="btn btn-outline-primary btn-sm w-50"
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#orderModal"
+                      data-product="Мяч Лига Чемпионов"
+                    >
+                      Заказать
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
-            <p class="card-text text-muted">
-              Краткое описание второго учебного товара.
-            </p>
-            <p class="fw-bold fs-5 mt-auto">1500 руб.</p>
-            <div class="d-flex gap-2">
-              <a class="btn btn-primary" href="product.html">Подробнее</a>
-              <button
-                class="btn btn-outline-primary"
-                type="button"
-                data-bs-toggle="modal"
-                data-bs-target="#orderModal"
-              >
-                Заказать
-              </button>
+          </div>
+
+          <!-- Товар 2: Бутсы Predator Pro -->
+          <div class="col-12 col-md-6 col-lg-4" id="category-boots">
+            <div class="card h-100 shadow-sm product-card border-0 overflow-hidden bg-white">
+              <div class="position-relative overflow-hidden">
+                <span class="position-absolute top-0 start-0 m-3 badge bg-warning text-dark shadow-sm">Хит продаж</span>
+                <img src="images/boots.jpg" class="card-img-top" alt="Бутсы Predator Pro">
+              </div>
+              <div class="card-body d-flex flex-column p-3">
+                <div class="text-muted small mb-1">Обувь • Натуральный газон</div>
+                <h3 class="card-title h5 fw-bold mb-2">Бутсы Predator Pro</h3>
+                <p class="card-text text-muted small">
+                  Профессиональные бутсы для идеального контроля мяча и динамичного дриблинга.
+                </p>
+                <div class="mt-auto pt-3 border-top">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="fs-5 fw-bold text-dark">18 500 руб.</span>
+                    <span class="badge bg-light text-success border border-success-subtle">В наличии</span>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <a class="btn btn-primary btn-sm w-50" href="product.html">Подробнее</a>
+                    <button
+                      class="btn btn-outline-primary btn-sm w-50"
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#orderModal"
+                      data-product="Бутсы Predator Pro"
+                    >
+                      Заказать
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Товар 3: Вратарские перчатки Grip -->
+          <div class="col-12 col-md-6 col-lg-4" id="category-gloves">
+            <div class="card h-100 shadow-sm product-card border-0 overflow-hidden bg-white">
+              <div class="position-relative overflow-hidden">
+                <span class="position-absolute top-0 start-0 m-3 badge bg-danger shadow-sm">Скидка -15%</span>
+                <img src="images/hands.jpg" class="card-img-top" alt="Вратарские перчатки Grip">
+              </div>
+              <div class="card-body d-flex flex-column p-3">
+                <div class="text-muted small mb-1">Экипировка • Вратарские перчатки</div>
+                <h3 class="card-title h5 fw-bold mb-2">Вратарские перчатки Grip</h3>
+                <p class="card-text text-muted small">
+                  Перчатки с надежным сцеплением, защитой пальцев и всепогодным латексом.
+                </p>
+                <div class="mt-auto pt-3 border-top">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div>
+                      <span class="fs-5 fw-bold text-dark">6 000 руб.</span>
+                      <span class="text-decoration-line-through text-muted small ms-1">7 100</span>
+                    </div>
+                    <span class="badge bg-light text-success border border-success-subtle">В наличии</span>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <a class="btn btn-primary btn-sm w-50" href="product.html">Подробнее</a>
+                    <button
+                      class="btn btn-outline-primary btn-sm w-50"
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#orderModal"
+                      data-product="Вратарские перчатки Grip"
+                    >
+                      Заказать
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Товар 4: Бутсы phantom elite GX2 -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm product-card border-0 overflow-hidden bg-white">
+              <div class="position-relative overflow-hidden">
+                <span class="position-absolute top-0 start-0 m-3 badge bg-primary shadow-sm">Топ модель</span>
+                <img src="images/phantom.jpg" class="card-img-top" alt="Бутсы phantom elite GX2">
+              </div>
+              <div class="card-body d-flex flex-column p-3">
+                <div class="text-muted small mb-1">Обувь • Nike Elite</div>
+                <h3 class="card-title h5 fw-bold mb-2">Бутсы phantom elite GX2</h3>
+                <p class="card-text text-muted small">
+                  Профессиональные бутсы Nike с инновационным материалом Gripknit для игры на натуральном газоне.
+                </p>
+                <div class="mt-auto pt-3 border-top">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="fs-5 fw-bold text-dark">20 000 руб.</span>
+                    <span class="badge bg-light text-success border border-success-subtle">В наличии</span>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <a class="btn btn-primary btn-sm w-50" href="product.html">Подробнее</a>
+                    <button
+                      class="btn btn-outline-primary btn-sm w-50"
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#orderModal"
+                      data-product="Бутсы phantom elite GX2"
+                    >
+                      Заказать
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Товар 5: Бутсы Puma Future -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card h-100 shadow-sm product-card border-0 overflow-hidden bg-white">
+              <div class="position-relative overflow-hidden">
+                <span class="position-absolute top-0 start-0 m-3 badge bg-info text-dark shadow-sm">Выбор профи</span>
+                <img src="images/puma.jpg" class="card-img-top" alt="Бутсы Puma Future">
+              </div>
+              <div class="card-body d-flex flex-column p-3">
+                <div class="text-muted small mb-1">Обувь • Puma Future Ultimate</div>
+                <h3 class="card-title h5 fw-bold mb-2">Бутсы Puma Future</h3>
+                <p class="card-text text-muted small">
+                  Эластичный верх FUZIONFIT360 с адаптивной фиксацией и динамической подошвой.
+                </p>
+                <div class="mt-auto pt-3 border-top">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="fs-5 fw-bold text-dark">20 000 руб.</span>
+                    <span class="badge bg-light text-success border border-success-subtle">В наличии</span>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <a class="btn btn-primary btn-sm w-50" href="product.html">Подробнее</a>
+                    <button
+                      class="btn btn-outline-primary btn-sm w-50"
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#orderModal"
+                      data-product="Бутсы Puma Future"
+                    >
+                      Заказать
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Товар 6: Белые носки Nike -->
+          <div class="col-12 col-md-6 col-lg-4" id="category-accessories">
+            <div class="card h-100 shadow-sm product-card border-0 overflow-hidden bg-white">
+              <div class="position-relative overflow-hidden">
+                <span class="position-absolute top-0 start-0 m-3 badge bg-secondary shadow-sm">Хит продаж</span>
+                <img src="images/whiteSocks.jpg" class="card-img-top" alt="Белые носки Nike">
+              </div>
+              <div class="card-body d-flex flex-column p-3">
+                <div class="text-muted small mb-1">Аксессуары • Гетры и носки</div>
+                <h3 class="card-title h5 fw-bold mb-2">Белые носки Nike</h3>
+                <p class="card-text text-muted small">
+                  Удобная анатомическая посадка, поддержка свода стопы и влагоотводящий трикотаж Dri-FIT.
+                </p>
+                <div class="mt-auto pt-3 border-top">
+                  <div class="d-flex justify-content-between align-items-center mb-3">
+                    <span class="fs-5 fw-bold text-dark">2 000 руб.</span>
+                    <span class="badge bg-light text-success border border-success-subtle">В наличии</span>
+                  </div>
+                  <div class="d-flex gap-2">
+                    <a class="btn btn-primary btn-sm w-50" href="product.html">Подробнее</a>
+                    <button
+                      class="btn btn-outline-primary btn-sm w-50"
+                      type="button"
+                      data-bs-toggle="modal"
+                      data-bs-target="#orderModal"
+                      data-product="Белые носки Nike"
+                    >
+                      Заказать
+                    </button>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card h-100 shadow-sm">
-          <div class="card-body d-flex flex-column">
-            <div class="d-flex justify-content-between align-items-start mb-3">
-              <h2 class="card-title h5">Товар 3</h2>
-              <span class="badge bg-danger">Скидка</span>
-            </div>
-            <p class="card-text text-muted">
-              Краткое описание третьего учебного товара.
-            </p>
-            <p class="fw-bold fs-5 mt-auto">2000 руб.</p>
-            <div class="d-flex gap-2">
-              <a class="btn btn-primary" href="product.html">Подробнее</a>
-              <button
-                class="btn btn-outline-primary"
-                type="button"
-                data-bs-toggle="modal"
-                data-bs-target="#orderModal"
-              >
-                Заказать
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
+
+        <!-- Дополнительный компонент: Пагинация (Pagination) -->
+        <nav aria-label="Навигация по страницам каталога" class="mt-5">
+          <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Предыдущая</a>
+            </li>
+            <li class="page-item active" aria-current="page">
+              <a class="page-link" href="#">1</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">Следующая</a>
+            </li>
+          </ul>
+        </nav>
+      </section>
     </div>
   </main>
 
+  <!-- Подвал страницы (Footer) -->
+  <footer class="bg-dark text-white py-5 mt-auto border-top">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 col-md-4">
+          <h4 class="h5 fw-bold mb-3 text-warning">⚽ FootballShop</h4>
+          <p class="text-white-50 mb-2">
+            Каталог оригинальной футбольной экипировки. 
+            Широкий ассортимент оригинальной футбольной экипировки от ведущих мировых брендов.
+          </p>
+          <p class="text-white-50 small mb-0">
+            Контрольная работа №2 • Дисциплина «Фронтенд и бэкенд разработка»
+          </p>
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-4">
+          <h4 class="h6 fw-bold mb-3 text-uppercase text-light">Навигация по сайту</h4>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-2"><a class="text-white-50 text-decoration-none" href="index.html">Главная страница</a></li>
+            <li class="mb-2"><a class="text-white-50 text-decoration-none" href="catalog.html">Каталог товаров</a></li>
+            <li class="mb-2"><a class="text-white-50 text-decoration-none" href="product.html">Карточка товара</a></li>
+            <li class="mb-2"><a class="text-white-50 text-decoration-none" href="order.html">Оформление заявки</a></li>
+            <li class="mb-2"><a class="text-white-50 text-decoration-none" href="contacts.html">Контакты и администраторы</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-4">
+          <h4 class="h6 fw-bold mb-3 text-uppercase text-light">Контакты</h4>
+          <p class="text-white-50 mb-1">📞 Телефон: <a class="text-white text-decoration-none" href="tel:88005553535">8-800-555-35-35</a></p>
+          <p class="text-white-50 mb-1">✉️ E-mail: <a class="text-white text-decoration-none" href="mailto:footballstore@gmail.com">footballstore@gmail.com</a></p>
+          <p class="text-white-50 mb-3">📍 Адрес: г. Москва, ул. Пушкина, д. Колотушкина</p>
+          <div class="p-2 rounded bg-black bg-opacity-25 border border-secondary text-white-50 small">
+            Автор: Волков Сергей Иванович, гр. ЭФБО-03-25
+          </div>
+        </div>
+      </div>
+
+      <hr class="my-4 border-secondary">
+
+      <div class="row align-items-center">
+        <div class="col-12 col-md-6 text-center text-md-start text-white-50 small">
+          &copy; 2026 FootballShop. Все права защищены. <a href="#top" class="text-white-50 text-decoration-none ms-3">Наверх ↑</a>
+        </div>
+        <div class="col-12 col-md-6 text-center text-md-end text-white-50 small mt-2 mt-md-0">
+          Стилизация: <span class="badge bg-secondary">Bootstrap 5 (Local)</span> + <span class="badge bg-secondary">custom.css</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Модальное окно заявки (Modal) -->
   <div
     class="modal fade"
     id="orderModal"
@@ -156,54 +546,127 @@
     aria-labelledby="orderModalLabel"
     aria-hidden="true"
   >
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title h5" id="orderModalLabel">
-            Быстрая заявка
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg">
+        <div class="modal-header bg-primary text-white">
+          <h2 class="modal-title h5 mb-0" id="orderModalLabel">
+            Оформление заявки на товар
           </h2>
           <button
             type="button"
-            class="btn-close"
+            class="btn-close btn-close-white"
             data-bs-dismiss="modal"
             aria-label="Закрыть"
           ></button>
         </div>
-        <div class="modal-body">
-          <p class="text-muted">
-            Оставьте контактные данные, и менеджер свяжется с вами.
-          </p>
-          <form>
+
+        <form id="modal-order-form" action="#" method="post">
+          <div class="modal-body p-4">
+            <p class="text-muted small mb-3">
+              Укажите контактные данные, и мы свяжемся с вами для подтверждения заказа.
+            </p>
+
+            <input type="hidden" id="modal-hidden-product" name="hidden-product" value="">
+
             <div class="mb-3">
-              <label for="modal-name" class="form-label">Имя</label>
-              <input id="modal-name" type="text" class="form-control" required>
+              <label for="modal-product" class="form-label fw-semibold">Выбранный товар</label>
+              <select id="modal-product" name="product" class="form-select">
+                <option value="Мяч Лига Чемпионов">Мяч Лига Чемпионов — 12 000 руб.</option>
+                <option value="Бутсы Predator Pro">Бутсы Predator Pro — 18 500 руб.</option>
+                <option value="Вратарские перчатки Grip">Вратарские перчатки Grip — 6 000 руб.</option>
+                <option value="Бутсы phantom elite GX2">Бутсы phantom elite GX2 — 20 000 руб.</option>
+                <option value="Бутсы Puma Future">Бутсы Puma Future — 20 000 руб.</option>
+                <option value="Белые носки Nike">Белые носки Nike — 2 000 руб.</option>
+                <option value="Консультация по каталогу">Консультация по каталогу</option>
+              </select>
             </div>
+
             <div class="mb-3">
-              <label for="modal-phone" class="form-label">Телефон</label>
-              <input id="modal-phone" type="tel" class="form-control" required>
+              <label for="modal-name" class="form-label fw-semibold">Ваше имя *</label>
+              <input
+                id="modal-name"
+                name="name"
+                type="text"
+                class="form-control"
+                placeholder="Иван Иванов"
+                minlength="2"
+                autocomplete="given-name"
+                required
+              >
+              <div class="invalid-feedback">Пожалуйста, укажите имя.</div>
             </div>
-            <div class="form-check mb-3">
-              <input id="modal-agree" class="form-check-input" type="checkbox" required>
-              <label class="form-check-label" for="modal-agree">
-                Согласен на обработку данных
+
+            <div class="mb-3">
+              <label for="modal-email" class="form-label fw-semibold">Электронная почта *</label>
+              <input
+                id="modal-email"
+                name="email"
+                type="email"
+                class="form-control"
+                placeholder="example@mail.ru"
+                autocomplete="email"
+                required
+              >
+              <div class="invalid-feedback">Укажите корректный e-mail.</div>
+            </div>
+
+            <div class="mb-3">
+              <label for="modal-phone" class="form-label fw-semibold">Телефон *</label>
+              <div class="input-group">
+                <span class="input-group-text">+7</span>
+                <input
+                  id="modal-phone"
+                  name="phone"
+                  type="tel"
+                  class="form-control"
+                  placeholder="(900) 000-00-00"
+                  pattern="\d{10}"
+                  required
+                >
+              </div>
+              <small class="form-text text-muted">10 цифр номера</small>
+            </div>
+
+            <div class="mb-3">
+              <label for="modal-comment" class="form-label fw-semibold">Комментарий</label>
+              <textarea
+                id="modal-comment"
+                name="comment"
+                rows="2"
+                class="form-control"
+                placeholder="Укажите размер или пожелания к доставке..."
+              ></textarea>
+            </div>
+
+            <div class="form-check mb-2">
+              <input
+                id="modal-agree"
+                name="agreement"
+                class="form-check-input"
+                type="checkbox"
+                required
+              >
+              <label class="form-check-label small" for="modal-agree">
+                Я согласен на обработку персональных данных *
               </label>
+              <div class="invalid-feedback">Необходимо согласие на обработку данных.</div>
             </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-            Закрыть
-          </button>
-          <button type="button" class="btn btn-primary">
-            Отправить
-          </button>
-        </div>
+          </div>
+
+          <div class="modal-footer bg-light">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Закрыть
+            </button>
+            <button type="submit" class="btn btn-primary fw-semibold px-4">
+              Отправить заявку
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
 
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
-  </script>
+  <!-- Локальный Bootstrap 5 JS Bundle -->
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

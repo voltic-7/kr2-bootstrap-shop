@@ -1,7 +1,80 @@
+/* ==========================================================================
+   FootballShop — Пользовательские стили поверх Bootstrap 5 (custom.css)
+   Проект: Контрольная работа №2
+   Автор: Волков Сергей Иванович (ЭФБО-03-25)
+   ========================================================================== */
+
+/* 1. Геометрия страницы: прижатие футера к низу окна */
 body {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
+main {
+  flex: 1 0 auto;
+}
+
+/* 2. Кадрирование изображений товаров (по методическим указаниям) */
+.card-img-top {
+  height: 220px;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+/* Эффект легкого приподнимания карточки при наведении */
+.product-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.12) !important;
+}
+
+/* 3. Фотографии администраторов в контактах */
+.admin-card-img {
+  height: 260px;
+  object-fit: cover;
+}
+
+/* 4. Фотография товара на детальной странице */
+.product-detail-img {
+  max-height: 420px;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* 5. Настройка hero-карусели */
+.hero-carousel-item {
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.hero-carousel-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(13, 110, 253, 0.82), rgba(33, 37, 41, 0.88));
+  display: flex;
+  align-items: center;
+}
+
+/* 6. Залипающая колонка фильтров на десктопе */
+@media (min-width: 992px) {
+  .sticky-filters {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 5rem;
+    z-index: 10;
+  }
+}
+
+/* 7. Вспомогательные классы из практических занятий №9 и №10 */
 .placeholder-box {
   min-height: 240px;
 }
@@ -10,7 +83,6 @@ body {
   min-height: 320px;
 }
 
-.card-img-top {
-  height: 180px;
-  object-fit: cover;
+.rating-stars {
+  color: #ffc107;
 }

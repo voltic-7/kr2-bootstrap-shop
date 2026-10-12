@@ -3,35 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Главная — Bootstrap Shop</title>
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  >
+  <meta name="description" content="Футбольный интернет-магазин FootballShop. Профессиональные мячи, бутсы, перчатки и экипировка на Bootstrap 5.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="FootballShop — Футбольный интернет-магазин">
+  <meta property="og:description" content="Футбольная экипировка и инвентарь от ведущих мировых брендов.">
+  <meta property="og:image" content="images/ball.jpg">
+  <title>Главная — Футбольный интернет-магазин FootballShop</title>
+
+  <!-- Локальное подключение Bootstrap 5 CSS -->
+  <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+  <!-- Пользовательский файл стилей после Bootstrap -->
   <link rel="stylesheet" href="css/custom.css">
 </head>
-<body>
-  <header class="bg-primary text-white py-4">
+<body id="top">
+
+  <!-- Верхняя информационная полоса (Header Top Bar) -->
+  <header class="bg-primary text-white py-2">
     <div class="container">
-      <div class="row align-items-center">
+      <div class="row align-items-center g-2">
         <div class="col-12 col-md-8">
-          <h1 class="h3 mb-1">Bootstrap Shop</h1>
-          <p class="mb-0 opacity-75">
-            Учебный интернет-магазин на Bootstrap
-          </p>
+          <span class="fw-semibold">⚽ FootballShop</span> — официальный магазин профессиональной футбольной экипировки
         </div>
-        <div class="col-12 col-md-4 text-md-end mt-3 mt-md-0">
-          <span class="badge bg-light text-primary">
-            КР №2
-          </span>
+        <div class="col-12 col-md-4 text-md-end">
+          <span class="badge bg-light text-primary me-2">Сезон 2026</span>
+          <span class="badge bg-warning text-dark">Bootstrap v5.3</span>
         </div>
       </div>
     </div>
   </header>
 
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <!-- Главная Bootstrap-навигация (Navbar) -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow-sm">
     <div class="container">
-      <a class="navbar-brand" href="index.html">Bootstrap Shop</a>
+      <a class="navbar-brand fw-bold fs-4 d-flex align-items-center" href="index.html">
+        <span class="me-2 text-warning">⚽</span>FootballShop
+      </a>
+
+      <!-- Кнопка гамбургер-меню для мобильных экранов -->
       <button
         class="navbar-toggler"
         type="button"
@@ -43,12 +51,12 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
+
+      <!-- Пункты меню -->
       <div class="collapse navbar-collapse" id="mainNavbar">
-        <ul class="navbar-nav ms-auto">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="index.html">
-              Главная
-            </a>
+            <a class="nav-link active" aria-current="page" href="index.html">Главная</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="catalog.html">Каталог</a>
@@ -59,6 +67,10 @@
           <li class="nav-item">
             <a class="nav-link" href="order.html">Заявка</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link" href="contacts.html">Контакты</a>
+          </li>
+          <!-- Выпадающий список (Dropdown) -->
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
@@ -67,13 +79,28 @@
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Дополнительно
+              Категории
             </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="catalog.html">Все товары</a></li>
-              <li><a class="dropdown-item" href="order.html">Оформить заявку</a></li>
-              <li><a class="dropdown-item" href="index.html#popular">Популярное</a></li>
+            <ul class="dropdown-menu dropdown-menu-end shadow">
+              <li><a class="dropdown-item" href="catalog.html#category-balls">Футбольные мячи</a></li>
+              <li><a class="dropdown-item" href="catalog.html#category-boots">Футбольные бутсы</a></li>
+              <li><a class="dropdown-item" href="catalog.html#category-gloves">Вратарская экипировка</a></li>
+              <li><a class="dropdown-item" href="catalog.html#category-accessories">Гетры и аксессуары</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-primary fw-semibold" href="catalog.html">Весь каталог</a></li>
             </ul>
+          </li>
+          <!-- Кнопка быстрого заказа в модальном окне -->
+          <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+            <button
+              class="btn btn-warning btn-sm fw-bold px-3"
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#orderModal"
+              data-product="Консультация по экипировке"
+            >
+              Быстрая заявка
+            </button>
           </li>
         </ul>
       </div>
@@ -81,142 +108,661 @@
   </nav>
 
   <main>
-      <section class="container my-5">
-          <div class="row align-items-center g-4">
-              <div class="col-12 col-lg-6">
-                  <h2 class="display-5 fw-bold">
-                      Учебный каталог товаров на Bootstrap
-                  </h2>
-                  <p class="lead text-muted">
-                      Проект демонстрирует использование Bootstrap-сетки,
-                      адаптивных колонок и базовых utility-классов.
-                  </p>
-                  <a class="btn btn-primary btn-lg" href="catalog.html">
-                      Перейти в каталог
-                  </a>
-              </div>
+    <!-- Дополнительный компонент: Карусель (Carousel) -->
+    <section aria-label="Промо-карусель">
+      <div id="heroCarousel" class="carousel slide carousel-fade shadow-sm" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Слайд 1"></button>
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Слайд 2"></button>
+          <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Слайд 3"></button>
+        </div>
 
-              <div class="col-12 col-lg-6">
-                  <div class="placeholder-box p-5 bg-light border rounded text-center">
-                      <p class="mb-0 text-muted">
-                          Здесь может быть изображение, баннер или промо-блок.
-                      </p>
+        <div class="carousel-inner">
+          <!-- Слайд 1 -->
+          <div class="carousel-item active hero-carousel-item" style="background-image: url('images/ball.jpg');">
+            <div class="hero-carousel-overlay">
+              <div class="container text-white py-5">
+                <div class="row">
+                  <div class="col-12 col-md-8 col-lg-6">
+                    <span class="badge bg-warning text-dark mb-2 fs-6">Новый сезон 2026</span>
+                    <h2 class="display-5 fw-bold text-white mb-3">Официальный мяч Лиги Чемпионов</h2>
+                    <p class="lead mb-4 opacity-90">Профессиональная термосклейка, эталонный контроль полета и сертификация FIFA Quality Pro.</p>
+                    <div class="d-flex gap-2">
+                      <a class="btn btn-light btn-lg fw-bold" href="product.html">Подробнее о мяче</a>
+                      <a class="btn btn-outline-light btn-lg" href="catalog.html">В каталог</a>
+                    </div>
                   </div>
+                </div>
               </div>
-          </div>
-      </section>
-
-      <section class="container my-5">
-          <h2 class="text-center mb-4">Преимущества проекта</h2>
-
-          <div class="row g-4">
-              <div class="col-12 col-md-4">
-                  <div class="p-4 border rounded h-100 bg-white">
-                      <h3 class="h5">Bootstrap-сетка</h3>
-                      <p class="mb-0 text-muted">
-                          Страница построена на 12-колоночной системе Bootstrap.
-                      </p>
-                  </div>
-              </div>
-
-              <div class="col-12 col-md-4">
-                  <div class="p-4 border rounded h-100 bg-white">
-                      <h3 class="h5">Адаптивность</h3>
-                      <p class="mb-0 text-muted">
-                          Колонки меняют ширину в зависимости от размера экрана.
-                      </p>
-                  </div>
-              </div>
-
-              <div class="col-12 col-md-4">
-                  <div class="p-4 border rounded h-100 bg-white">
-                      <h3 class="h5">Готовая база</h3>
-                      <p class="mb-0 text-muted">
-                          Проект подготовлен к добавлению карточек, форм и модальных окон.
-                      </p>
-                  </div>
-              </div>
-          </div>
-      </section>
-
-      <section id="popular" class="container my-5">
-          <div class="d-flex justify-content-between align-items-center mb-4">
-              <h2 class="mb-0">Популярные товары</h2>
-              <a class="btn btn-outline-primary" href="catalog.html">
-                  Все товары
-              </a>
+            </div>
           </div>
 
-          <div class="row g-4">
-              <div class="col-12 col-md-6 col-lg-4">
-                  <div class="border rounded h-100 p-4">
-                      <span class="badge bg-success mb-3">Новинка</span>
-                      <h3 class="h5">Товар 1</h3>
-                      <p class="text-muted">
-                          Краткое описание учебного товара.
-                      </p>
-                      <p class="fw-bold mb-3">1000 руб.</p>
-                      <a class="btn btn-primary" href="product.html">
-                          Подробнее
-                      </a>
+          <!-- Слайд 2 -->
+          <div class="carousel-item hero-carousel-item" style="background-image: url('images/boots.jpg');">
+            <div class="hero-carousel-overlay">
+              <div class="container text-white py-5">
+                <div class="row">
+                  <div class="col-12 col-md-8 col-lg-6">
+                    <span class="badge bg-danger mb-2 fs-6">Хит продаж</span>
+                    <h2 class="display-5 fw-bold text-white mb-3">Бутсы Predator Pro & Nike Phantom</h2>
+                    <p class="lead mb-4 opacity-90">Максимальное сцепление с газоном и непревзойденная точность каждого удара.</p>
+                    <div class="d-flex gap-2">
+                      <a class="btn btn-warning btn-lg fw-bold" href="catalog.html">Выбрать бутсы</a>
+                      <button class="btn btn-outline-light btn-lg" type="button" data-bs-toggle="modal" data-bs-target="#orderModal" data-product="Бутсы Predator Pro">Заказать примерку</button>
+                    </div>
                   </div>
+                </div>
               </div>
-
-              <div class="col-12 col-md-6 col-lg-4">
-                  <div class="border rounded h-100 p-4">
-                      <span class="badge bg-warning text-dark mb-3">Хит</span>
-                      <h3 class="h5">Товар 2</h3>
-                      <p class="text-muted">
-                          Краткое описание учебного товара.
-                      </p>
-                      <p class="fw-bold mb-3">1500 руб.</p>
-                      <a class="btn btn-primary" href="product.html">
-                          Подробнее
-                      </a>
-                  </div>
-              </div>
-
-              <div class="col-12 col-md-6 col-lg-4">
-                  <div class="border rounded h-100 p-4">
-                      <span class="badge bg-danger mb-3">Скидка</span>
-                      <h3 class="h5">Товар 3</h3>
-                      <p class="text-muted">
-                          Краткое описание учебного товара.
-                      </p>
-                      <p class="fw-bold mb-3">2000 руб.</p>
-                      <a class="btn btn-primary" href="product.html">
-                          Подробнее
-                      </a>
-                  </div>
-              </div>
+            </div>
           </div>
-      </section>
 
+          <!-- Слайд 3 -->
+          <div class="carousel-item hero-carousel-item" style="background-image: url('images/hands.jpg');">
+            <div class="hero-carousel-overlay">
+              <div class="container text-white py-5">
+                <div class="row">
+                  <div class="col-12 col-md-8 col-lg-6">
+                    <span class="badge bg-success mb-2 fs-6">Спецпредложение</span>
+                    <h2 class="display-5 fw-bold text-white mb-3">Вратарская экипировка Grip</h2>
+                    <p class="lead mb-4 opacity-90">Надежный латекс 4 мм, защита пальцев и анатомическая посадка для ключевых сейвов.</p>
+                    <div class="d-flex gap-2">
+                      <a class="btn btn-primary btn-lg fw-bold" href="catalog.html">Смотреть экипировку</a>
+                      <a class="btn btn-outline-light btn-lg" href="order.html">Оформить заявку</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Предыдущий</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Следующий</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- Hero-блок на сетке (по методическим указаниям) -->
+    <section class="container my-5">
+      <div class="row align-items-center g-4">
+        <div class="col-12 col-lg-7">
+          <div class="d-inline-block badge bg-primary-subtle text-primary border border-primary-subtle px-3 py-2 rounded-pill mb-3">
+            🏆 Магазин футбольной экипировки №1
+          </div>
+          <h1 class="display-5 fw-bold mb-3">
+            Футбольный магазин FootballShop
+          </h1>
+          <p class="lead text-muted mb-4">
+            Всё для футбола: от матчевых мячей и бутс профессионального уровня до надежной защиты и удобной формы. 
+            Играй как чемпион вместе с оригинальной экипировкой от FootballShop!
+          </p>
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn btn-primary btn-lg px-4" href="catalog.html">
+              Перейти к товарам
+            </a>
+            <button
+              class="btn btn-outline-primary btn-lg px-4"
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#orderModal"
+              data-product="Консультация по подбору"
+            >
+              Оставить заявку
+            </button>
+            <a class="btn btn-outline-secondary btn-lg" href="#faq">
+              Частые вопросы
+            </a>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-5">
+          <div class="card border-0 shadow-lg overflow-hidden">
+            <div class="position-relative">
+              <img src="images/ball.jpg" class="card-img-top" style="height: 280px;" alt="Официальный футбольный мяч">
+              <span class="position-absolute top-0 end-0 m-3 badge bg-danger fs-6 shadow">
+                Скидка 15%
+              </span>
+            </div>
+            <div class="card-body p-4 bg-light">
+              <h2 class="h5 card-title fw-bold">Специальное предложение месяца</h2>
+              <p class="card-text text-muted mb-3">
+                Скидка 15% на всю вратарскую экипировку и мячи турниров до конца месяца. 
+                Успей заказать оригинальный инвентарь с быстрой доставкой!
+              </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="fs-4 fw-bold text-primary">от 6 000 руб.</span>
+                <a class="btn btn-sm btn-primary" href="catalog.html">Узнать больше</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Блок преимуществ (Advantages Grid) -->
+    <section class="container my-5" id="advantages">
+      <div class="text-center mb-5">
+        <h2 class="display-6 fw-bold">Наши преимущества</h2>
+        <p class="text-muted">Почему тысячи футболистов и тренеров выбирают FootballShop</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm p-4 text-center product-card bg-white">
+            <div class="display-5 text-primary mb-3">🏅</div>
+            <h3 class="h5 fw-bold">100% Оригинал</h3>
+            <p class="text-muted mb-0">Только сертифицированная экипировка от мировых брендов Nike, Adidas и Puma.</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm p-4 text-center product-card bg-white">
+            <div class="display-5 text-success mb-3">📦</div>
+            <h3 class="h5 fw-bold">Широкий выбор</h3>
+            <p class="text-muted mb-0">Мячи, бутсы всех типов подошв (FG, AG, TF), перчатки, гетры и защита в наличии.</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm p-4 text-center product-card bg-white">
+            <div class="display-5 text-warning mb-3">⚡</div>
+            <h3 class="h5 fw-bold">Быстрая доставка</h3>
+            <p class="text-muted mb-0">Оперативная доставка курьером по Москве и транспортными службами по всей России.</p>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-lg-3">
+          <div class="card h-100 border-0 shadow-sm p-4 text-center product-card bg-white">
+            <div class="display-5 text-info mb-3">👨‍💼</div>
+            <h3 class="h5 fw-bold">Эксперты в футболе</h3>
+            <p class="text-muted mb-0">Наши администраторы — действующие игроки, которые помогут подобрать размер и модель.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Сетка популярных товаров (Popular Products) -->
+    <section class="container my-5" id="popular">
+      <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+        <div>
+          <h2 class="display-6 fw-bold mb-1">Популярные товары</h2>
+          <p class="text-muted mb-0">Хиты продаж и новинки текущего сезона</p>
+        </div>
+        <a class="btn btn-outline-primary" href="catalog.html">
+          Все товары каталога →
+        </a>
+      </div>
+
+      <div class="row g-4">
+        <!-- Карточка 1: Мяч Лига Чемпионов -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm product-card border-0 overflow-hidden">
+            <div class="position-relative overflow-hidden">
+              <span class="position-absolute top-0 start-0 m-3 badge bg-success fs-6 shadow-sm">Новинка</span>
+              <img src="images/ball.jpg" class="card-img-top" alt="Мяч Лига Чемпионов">
+            </div>
+            <div class="card-body d-flex flex-column p-4">
+              <div class="text-muted small mb-1">Мячи • FIFA Quality Pro</div>
+              <h3 class="card-title h5 fw-bold">Мяч Лига Чемпионов</h3>
+              <p class="card-text text-muted">
+                Официальный матчевый мяч с технологией термосклейки. Идеальная аэродинамика и долговечность.
+              </p>
+              <div class="mt-auto pt-3 border-top">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <span class="fs-4 fw-bold text-dark">12 000 руб.</span>
+                  <span class="badge bg-light text-secondary border">В наличии</span>
+                </div>
+                <div class="d-flex gap-2">
+                  <a class="btn btn-primary w-50" href="product.html">Подробнее</a>
+                  <button
+                    class="btn btn-outline-primary w-50"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#orderModal"
+                    data-product="Мяч Лига Чемпионов"
+                  >
+                    Заказать
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Карточка 2: Бутсы Predator Pro -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm product-card border-0 overflow-hidden">
+            <div class="position-relative overflow-hidden">
+              <span class="position-absolute top-0 start-0 m-3 badge bg-warning text-dark fs-6 shadow-sm">Хит продаж</span>
+              <img src="images/boots.jpg" class="card-img-top" alt="Бутсы Predator Pro">
+            </div>
+            <div class="card-body d-flex flex-column p-4">
+              <div class="text-muted small mb-1">Обувь • Натуральный газон</div>
+              <h3 class="card-title h5 fw-bold">Бутсы Predator Pro</h3>
+              <p class="card-text text-muted">
+                Профессиональные бутсы с рельефными элементами Strikeskin для безупречного контроля мяча.
+              </p>
+              <div class="mt-auto pt-3 border-top">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <span class="fs-4 fw-bold text-dark">18 500 руб.</span>
+                  <span class="badge bg-light text-secondary border">В наличии</span>
+                </div>
+                <div class="d-flex gap-2">
+                  <a class="btn btn-primary w-50" href="product.html">Подробнее</a>
+                  <button
+                    class="btn btn-outline-primary w-50"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#orderModal"
+                    data-product="Бутсы Predator Pro"
+                  >
+                    Заказать
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Карточка 3: Вратарские перчатки Grip -->
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="card h-100 shadow-sm product-card border-0 overflow-hidden">
+            <div class="position-relative overflow-hidden">
+              <span class="position-absolute top-0 start-0 m-3 badge bg-danger fs-6 shadow-sm">Скидка -15%</span>
+              <img src="images/hands.jpg" class="card-img-top" alt="Вратарские перчатки Grip">
+            </div>
+            <div class="card-body d-flex flex-column p-4">
+              <div class="text-muted small mb-1">Экипировка • Вратарские перчатки</div>
+              <h3 class="card-title h5 fw-bold">Вратарские перчатки Grip</h3>
+              <p class="card-text text-muted">
+                Профессиональный немецкий латекс для идеального сцепления в сухую и дождливую погоду.
+              </p>
+              <div class="mt-auto pt-3 border-top">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                  <div>
+                    <span class="fs-4 fw-bold text-dark">6 000 руб.</span>
+                    <span class="text-decoration-line-through text-muted small ms-1">7 100 руб.</span>
+                  </div>
+                  <span class="badge bg-light text-secondary border">В наличии</span>
+                </div>
+                <div class="d-flex gap-2">
+                  <a class="btn btn-primary w-50" href="product.html">Подробнее</a>
+                  <button
+                    class="btn btn-outline-primary w-50"
+                    type="button"
+                    data-bs-toggle="modal"
+                    data-bs-target="#orderModal"
+                    data-product="Вратарские перчатки Grip"
+                  >
+                    Заказать
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Блок отзывов клиентов (Reviews) -->
+    <section class="container my-5" id="reviews">
+      <div class="text-center mb-5">
+        <h2 class="display-6 fw-bold">Отзывы клиентов</h2>
+        <p class="text-muted">Что говорят спортсмены о нашей экипировке и сервисе</p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-12 col-md-6">
+          <div class="card h-100 border-0 shadow-sm p-4 bg-white">
+            <div class="d-flex align-items-center mb-3">
+              <img src="images/admin1.jpg" class="rounded-circle me-3 border" width="60" height="60" style="object-fit: cover;" alt="Алексей С.">
+              <div>
+                <h3 class="h6 fw-bold mb-0">Алексей С.</h3>
+                <span class="small text-muted">Капитан ФК «Авангард»</span>
+                <div class="rating-stars small">★★★★★</div>
+              </div>
+            </div>
+            <p class="card-text text-muted fst-italic">
+              «Отличный магазин! Заказывал бутсы Predator Pro. Администратор помог определиться с длиной стельки, всё подошло сантиметр в сантиметр. Привезли курьером уже на следующий день. Качество оригинальное!»
+            </p>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6">
+          <div class="card h-100 border-0 shadow-sm p-4 bg-white">
+            <div class="d-flex align-items-center mb-3">
+              <img src="images/admin2.jpg" class="rounded-circle me-3 border" width="60" height="60" style="object-fit: cover;" alt="Мария В.">
+              <div>
+                <h3 class="h6 fw-bold mb-0">Мария В.</h3>
+                <span class="small text-muted">Тренер юношеской футбольной академии</span>
+                <div class="rating-stars small">★★★★★</div>
+              </div>
+            </div>
+            <p class="card-text text-muted fst-italic">
+              «Заказывали партию матчевых мячей Лиги Чемпионов и перчатки для наших вратарей. Качество на высоте, термосклейка держит отлично даже на искусственном газоне. Будем сотрудничать на постоянной основе!»
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Блок часто задаваемых вопросов (FAQ Accordion) -->
+    <section class="container my-5" id="faq">
+      <div class="text-center mb-4">
+        <h2 class="display-6 fw-bold">Часто задаваемые вопросы</h2>
+        <p class="text-muted">Ответы на самые популярные вопросы о заказе, доставке и гарантии</p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-10">
+          <div class="accordion shadow-sm" id="faqAccordion">
+            <!-- Вопрос 1 -->
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingOne">
+                <button
+                  class="accordion-button fw-semibold"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  Как осуществляется доставка по Москве и городам России?
+                </button>
+              </h3>
+              <div
+                id="collapseOne"
+                class="accordion-collapse collapse show"
+                aria-labelledby="headingOne"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body text-muted">
+                  По Москве доставка осуществляется собственной курьерской службой в день заказа либо на следующий рабочий день. 
+                  По России отправляем через СДЭК, Boxberry и Почту России с возможностью отслеживания по трек-номеру. Сроки доставки составляют от 1 до 4 рабочих дней.
+                </div>
+              </div>
+            </div>
+
+            <!-- Вопрос 2 -->
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingTwo">
+                <button
+                  class="accordion-button collapsed fw-semibold"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="collapseTwo"
+                >
+                  Как правильно подобрать размер футбольных бутс?
+                </button>
+              </h3>
+              <div
+                id="collapseTwo"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingTwo"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body text-muted">
+                  Рекомендуем измерить длину стопы в сантиметрах и ориентироваться на шкалу JP/CM в размерной сетке. 
+                  Для футбольных бутс рекомендуется запас 0.5 см с учетом плотного футбольного гетра. Если сомневаетесь — оформите заявку, наш специалист проконсультирует вас!
+                </div>
+              </div>
+            </div>
+
+            <!-- Вопрос 3 -->
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingThree">
+                <button
+                  class="accordion-button collapsed fw-semibold"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree"
+                  aria-expanded="false"
+                  aria-controls="collapseThree"
+                >
+                  Гарантируете ли вы подлинность товаров и есть ли возврат?
+                </button>
+              </h3>
+              <div
+                id="collapseThree"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingThree"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body text-muted">
+                  Да, вся представленная продукция является на 100% оригинальной и закупается у официальных дистрибьюторов брендов. 
+                  В соответствии с законодательством РФ, вы можете обменять или вернуть товар надлежащего качества в течение 14 дней с момента получения при сохранении товарного вида и бирок.
+                </div>
+              </div>
+            </div>
+
+            <!-- Вопрос 4 -->
+            <div class="accordion-item">
+              <h3 class="accordion-header" id="headingFour">
+                <button
+                  class="accordion-button collapsed fw-semibold"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseFour"
+                  aria-expanded="false"
+                  aria-controls="collapseFour"
+                >
+                  Можно ли оформить заказ без регистрации на сайте?
+                </button>
+              </h3>
+              <div
+                id="collapseFour"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingFour"
+                data-bs-parent="#faqAccordion"
+              >
+                <div class="accordion-body text-muted">
+                  Да! В интернет-магазине FootballShop заявка оформляется максимально быстро без утомительной регистрации: достаточно заполнить форму заказа или нажать «Быстрая заявка» в модальном окне.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Промо-блок (Alert / Call to action) -->
+    <section class="container my-5">
+      <div class="alert alert-primary p-4 rounded-4 shadow-sm d-flex justify-content-between align-items-center flex-wrap gap-3" role="alert">
+        <div>
+          <h3 class="h4 alert-heading mb-1 fw-bold">Остались вопросы по выбору экипировки?</h3>
+          <p class="mb-0 text-dark opacity-75">Оставьте свои контактные данные, и наш специалист свяжется с вами для консультации.</p>
+        </div>
+        <a class="btn btn-primary btn-lg fw-semibold" href="order.html">Оформить заявку</a>
+      </div>
+    </section>
   </main>
 
-  <footer class="bg-dark text-white py-4 mt-5">
-      <div class="container">
-          <div class="row align-items-center g-3">
-              <div class="col-12 col-md-6">
-                  <p class="mb-0">
-                      &copy; 2026 Bootstrap Shop. Учебный проект.
-                  </p>
-              </div>
+  <!-- Подвал страницы (Footer) -->
+  <footer class="bg-dark text-white py-5 mt-auto border-top">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 col-md-4">
+          <h4 class="h5 fw-bold mb-3 text-warning">⚽ FootballShop</h4>
+          <p class="text-white-50 mb-2">
+            Официальный интернет-магазин профессиональной футбольной экипировки и инвентаря. 
+            Широкий выбор оригинальной продукции для профессионалов и любителей футбола.
+          </p>
+          <p class="text-white-50 small mb-0">
+            Контрольная работа №2 • Дисциплина «Фронтенд и бэкенд разработка»
+          </p>
+        </div>
 
-              <div class="col-12 col-md-6 text-md-end">
-                  <a class="text-white text-decoration-none me-3" href="catalog.html">
-                      Каталог
-                  </a>
-                  <a class="text-white text-decoration-none" href="order.html">
-                      Заявка
-                  </a>
-              </div>
+        <div class="col-12 col-sm-6 col-md-4">
+          <h4 class="h6 fw-bold mb-3 text-uppercase text-light">Навигация по сайту</h4>
+          <ul class="list-unstyled mb-0">
+            <li class="mb-2"><a class="text-white-50 text-decoration-none" href="index.html">Главная страница</a></li>
+            <li class="mb-2"><a class="text-white-50 text-decoration-none" href="catalog.html">Каталог товаров</a></li>
+            <li class="mb-2"><a class="text-white-50 text-decoration-none" href="product.html">Карточка товара</a></li>
+            <li class="mb-2"><a class="text-white-50 text-decoration-none" href="order.html">Оформление заявки</a></li>
+            <li class="mb-2"><a class="text-white-50 text-decoration-none" href="contacts.html">Контакты и администраторы</a></li>
+          </ul>
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-4">
+          <h4 class="h6 fw-bold mb-3 text-uppercase text-light">Контакты</h4>
+          <p class="text-white-50 mb-1">📞 Телефон: <a class="text-white text-decoration-none" href="tel:88005553535">8-800-555-35-35</a></p>
+          <p class="text-white-50 mb-1">✉️ E-mail: <a class="text-white text-decoration-none" href="mailto:footballstore@gmail.com">footballstore@gmail.com</a></p>
+          <p class="text-white-50 mb-3">📍 Адрес: г. Москва, ул. Пушкина, д. Колотушкина</p>
+          <div class="p-2 rounded bg-black bg-opacity-25 border border-secondary text-white-50 small">
+            Автор: Волков Сергей Иванович, гр. ЭФБО-03-25
           </div>
+        </div>
       </div>
+
+      <hr class="my-4 border-secondary">
+
+      <div class="row align-items-center">
+        <div class="col-12 col-md-6 text-center text-md-start text-white-50 small">
+          &copy; 2026 FootballShop. Все права защищены. <a href="#top" class="text-white-50 text-decoration-none ms-3">Наверх ↑</a>
+        </div>
+        <div class="col-12 col-md-6 text-center text-md-end text-white-50 small mt-2 mt-md-0">
+          Стилизация: <span class="badge bg-secondary">Bootstrap 5 (Local)</span> + <span class="badge bg-secondary">custom.css</span>
+        </div>
+      </div>
+    </div>
   </footer>
 
-  <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
-  </script>
+  <!-- Модальное окно заявки (Modal) -->
+  <div
+    class="modal fade"
+    id="orderModal"
+    tabindex="-1"
+    aria-labelledby="orderModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content border-0 shadow-lg">
+        <div class="modal-header bg-primary text-white">
+          <h2 class="modal-title h5 mb-0" id="orderModalLabel">
+            Оформление заявки
+          </h2>
+          <button
+            type="button"
+            class="btn-close btn-close-white"
+            data-bs-dismiss="modal"
+            aria-label="Закрыть"
+          ></button>
+        </div>
+
+        <form id="modal-order-form" action="#" method="post">
+          <div class="modal-body p-4">
+            <p class="text-muted small mb-3">
+              Заполните контактную информацию, и наш специалист свяжется с вами для подтверждения заказа.
+            </p>
+
+            <input type="hidden" id="modal-hidden-product" name="hidden-product" value="">
+
+            <div class="mb-3">
+              <label for="modal-product" class="form-label fw-semibold">Выбранный товар</label>
+              <select id="modal-product" name="product" class="form-select">
+                <option value="Консультация по экипировке">Консультация по экипировке</option>
+                <option value="Мяч Лига Чемпионов">Мяч Лига Чемпионов — 12 000 руб.</option>
+                <option value="Бутсы Predator Pro">Бутсы Predator Pro — 18 500 руб.</option>
+                <option value="Вратарские перчатки Grip">Вратарские перчатки Grip — 6 000 руб.</option>
+                <option value="Бутсы phantom elite GX2">Бутсы phantom elite GX2 — 20 000 руб.</option>
+                <option value="Бутсы Puma Future">Бутсы Puma Future — 20 000 руб.</option>
+                <option value="Белые носки Nike">Белые носки Nike — 2 000 руб.</option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label for="modal-name" class="form-label fw-semibold">Ваше имя *</label>
+              <input
+                id="modal-name"
+                name="name"
+                type="text"
+                class="form-control"
+                placeholder="Иван Иванов"
+                minlength="2"
+                autocomplete="given-name"
+                required
+              >
+              <div class="invalid-feedback">Пожалуйста, укажите ваше имя (минимум 2 символа).</div>
+            </div>
+
+            <div class="mb-3">
+              <label for="modal-email" class="form-label fw-semibold">Электронная почта *</label>
+              <input
+                id="modal-email"
+                name="email"
+                type="email"
+                class="form-control"
+                placeholder="example@mail.ru"
+                autocomplete="email"
+                required
+              >
+              <div class="invalid-feedback">Укажите корректный адрес электронной почты.</div>
+            </div>
+
+            <div class="mb-3">
+              <label for="modal-phone" class="form-label fw-semibold">Телефон *</label>
+              <div class="input-group">
+                <span class="input-group-text">+7</span>
+                <input
+                  id="modal-phone"
+                  name="phone"
+                  type="tel"
+                  class="form-control"
+                  placeholder="(900) 000-00-00"
+                  pattern="\d{10}"
+                  required
+                >
+              </div>
+              <small class="form-text text-muted">10 цифр номера без восьмерки или семерки</small>
+            </div>
+
+            <div class="mb-3">
+              <label for="modal-comment" class="form-label fw-semibold">Комментарий к заявке</label>
+              <textarea
+                id="modal-comment"
+                name="comment"
+                rows="2"
+                class="form-control"
+                placeholder="Укажите размер или дополнительные пожелания..."
+              ></textarea>
+            </div>
+
+            <div class="form-check mb-2">
+              <input
+                id="modal-agree"
+                name="agreement"
+                class="form-check-input"
+                type="checkbox"
+                required
+              >
+              <label class="form-check-label small" for="modal-agree">
+                Я согласен на обработку персональных данных *
+              </label>
+              <div class="invalid-feedback">Необходимо подтвердить согласие.</div>
+            </div>
+          </div>
+
+          <div class="modal-footer bg-light">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+              Закрыть
+            </button>
+            <button type="submit" class="btn btn-primary fw-semibold px-4">
+              Отправить заявку
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Локальный Bootstrap 5 JS Bundle -->
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
